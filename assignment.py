@@ -1,3 +1,4 @@
+import importlib
 def read_file(file_path: str) -> str:
     with open(file_path, 'r') as file:
         return file.read()
@@ -11,10 +12,8 @@ def write_file(file_path: str, content: str) -> None:
 
 
 def list_files_in_directory(directory_path: str) -> list:
-    """
-    Returns a list of files in the specified directory.
-    """
-    raise NotImplementedError()
+    return [f for f in os.listdir(directory_path)
+                if os.path.isfile(os.path.join(directory_path, f))]
 
 
 def generate_numbers(n: int) -> iter:
@@ -22,6 +21,6 @@ def generate_numbers(n: int) -> iter:
 
 
 def use_function_from_module(module_name: str, function_name: str, *args) -> any:
-    module = importlib.import_module(module_name)
+    module = __import__(module_name)
     func = getattr(module, function_name)
     return func(*args)
