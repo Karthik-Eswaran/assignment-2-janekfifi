@@ -1,13 +1,13 @@
 def read_file(file_path: str) -> str:
     with open(file_path, 'r') as file:
         return file.read()
-    raise NotImplementedError()
+    
 
 
 def write_file(file_path: str, content: str) -> None:
     with open(file_path, 'w') as file:
         file.write(content)
-    raise NotImplementedError()
+    
 
 
 def list_files_in_directory(directory_path: str) -> list:
